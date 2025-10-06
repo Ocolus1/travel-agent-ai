@@ -1,0 +1,84 @@
+research_destination_task:
+  description: >
+    Research {destination} thoroughly for a {days}-day trip starting on {start_date}.
+    Consider the travel preferences: {preferences}.
+    Find information about:
+    - Top attractions and must-see landmarks
+    - Hidden gems and local favorites
+    - Best restaurants and local cuisine experiences
+    - Accommodation options matching the budget and style
+    - Cultural events, festivals, or seasonal activities during the travel period
+    - Local customs, etiquette, and useful phrases
+    - Transportation options (getting around the city/area)
+    - Safety tips and practical information
+    - Weather expectations and packing recommendations
+    - Estimated daily budget for activities, food, and transportation
+  expected_output: >
+    A comprehensive research report with detailed information about {destination} including:
+    - At least 10-15 recommended attractions/activities with descriptions
+    - 5-7 restaurant/dining recommendations
+    - 3-5 accommodation options with price ranges
+    - Practical travel tips and local insights
+    - Transportation and logistics information
+    All information should be current, accurate, and relevant to the specified travel dates.
+  agent: destination_researcher
+
+plan_itinerary_task:
+  description: >
+    Using the research about {destination}, create a detailed day-by-day itinerary for {days} days
+    starting on {start_date}. Consider the preferences: {preferences}.
+    
+    For each day, provide:
+    - Morning activities (with specific times, e.g., 9:00 AM - 12:00 PM)
+    - Lunch recommendations with locations
+    - Afternoon activities (with specific times)
+    - Dinner recommendations
+    - Evening activities or relaxation time
+    - Estimated daily costs
+    
+    Ensure the itinerary:
+    - Balances sightseeing with rest time
+    - Accounts for realistic travel time between locations
+    - Groups nearby attractions together to minimize transit
+    - Includes a mix of popular sites and authentic local experiences
+    - Considers opening hours and best times to visit attractions
+    - Provides alternative options for flexibility
+  expected_output: >
+    A detailed, day-by-day itinerary formatted as a structured document with:
+    - Clear day headers (Day 1: [Date], Day 2: [Date], etc.)
+    - Specific activities with times, locations, and descriptions
+    - Restaurant/dining suggestions for each meal
+    - Estimated costs per activity and per day
+    - Practical tips for each day
+    - Total estimated trip cost
+    Formatted as markdown without '```'
+  agent: itinerary_planner
+  context:
+    - research_destination_task
+
+format_calendar_task:
+  description: >
+    Transform the itinerary into a calendar-ready format with exact event details.
+    For each activity in the itinerary, create a structured event with:
+    - Event title
+    - Exact date and time (start and end)
+    - Location/address
+    - Detailed description
+    - Any relevant notes or tips
+    
+    Organize all events chronologically and ensure they're ready to be exported
+    to a calendar file format (.ics).
+  expected_output: >
+    A detailed list of calendar events with the following structure for each event:
+    - Title: [Activity name]
+    - Date: [Full date]
+    - Start Time: [Specific time]
+    - End Time: [Specific time]
+    - Location: [Venue/address]
+    - Description: [Activity details, tips, estimated cost]
+    
+    Format should be clear and structured to facilitate calendar file generation.
+    Include all activities, meals, and travel times from the itinerary.
+  agent: calendar_formatter
+  context:
+    - plan_itinerary_task

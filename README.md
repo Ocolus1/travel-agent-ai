@@ -1,11 +1,50 @@
 # 🌍 AI Travel Agent
 
+[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](https://github.com/Ocolus1/travel-agent-ai)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 An intelligent AI-powered travel agent that generates **personalized travel itineraries** using **OpenAI GPT-4o**. This application automates the entire process of researching destinations, planning activities, and organizing your dream vacation with the ability to export your itinerary directly to your calendar.
 
 Built with [CrewAI](https://crewai.com), this multi-agent system leverages specialized AI agents working together to deliver comprehensive travel plans tailored to your preferences.
 
+**🔗 GitHub Repository:** [https://github.com/Ocolus1/travel-agent-ai](https://github.com/Ocolus1/travel-agent-ai)
+
+## 📑 Table of Contents
+
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [What You Get](#what-you-get)
+- [Architecture](#-architecture)
+- [Customization](#-customization)
+- [Examples](#-examples)
+- [Troubleshooting](#-troubleshooting)
+- [What's New](#-whats-new)
+- [Contributing](#-contributing)
+
+## 🚀 Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Ocolus1/travel-agent-ai.git
+cd travel-agent-ai
+
+# 2. Install dependencies
+pip install uv
+crewai install
+
+# 3. Set up API keys in .env file
+echo "OPENAI_API_KEY=your_openai_key" > .env
+echo "SERPER_API_KEY=your_serper_key" >> .env
+
+# 4. Launch the web app
+streamlit run app.py
+```
+
 ## ✨ Features
 
+### Core Features
 - 🔍 **Smart Destination Research** - Automatically discovers attractions, activities, restaurants, and accommodations
 - 📅 **Customizable Itineraries** - Generate day-by-day plans based on your trip duration and preferences
 - 🤖 **GPT-4o Intelligence** - Powered by OpenAI's advanced language model for personalized recommendations
@@ -13,6 +52,15 @@ Built with [CrewAI](https://crewai.com), this multi-agent system leverages speci
 - 💰 **Budget Awareness** - Plans activities and dining within your specified budget range
 - 🎯 **Preference Matching** - Tailors recommendations to your interests, travel style, and special requirements
 - 🗺️ **Realistic Planning** - Accounts for travel time, opening hours, and optimal activity sequencing
+
+### Web Interface Features
+- 🎨 **Modern Dark Theme UI** - Professional, eye-friendly dark interface with subtle accents
+- 💬 **Interactive Chat** - Ask questions about your itinerary and get instant AI-powered answers
+- 🧠 **Conversation Memory** - Maintains context across your entire session
+- 📁 **Unique File Naming** - Each itinerary saved with destination and date (no overwrites!)
+- 📥 **One-Click Downloads** - Download all trip files (itinerary, calendar, ICS) in a single ZIP
+- 🔄 **Multi-Itinerary Support** - Generate multiple trips without file conflicts
+- 📊 **Session Statistics** - Track messages, context items, and current destination
 
 ## 🚀 Installation
 
@@ -116,21 +164,26 @@ crewai run
 
 ### What You Get
 
-After running, the AI Travel Agent generates:
+After running, the AI Travel Agent generates files in the `exports/` folder:
 
-1. **`travel_itinerary.md`** - Detailed day-by-day itinerary with:
+1. **`[YYYYMMDD]_[destination]_itinerary.md`** - Detailed day-by-day itinerary with:
    - Morning, afternoon, and evening activities
    - Restaurant recommendations for each meal
    - Estimated costs and timing
    - Practical tips and alternatives
+   - Example: `20251105_Paris_France_itinerary.md`
 
-2. **`calendar_events.txt`** - Structured event data for calendar import
+2. **`[YYYYMMDD]_[destination]_calendar_events.txt`** - Structured event data for calendar import
+   - Example: `20251105_Paris_France_calendar_events.txt`
 
 3. **`[destination]_itinerary.ics`** - Calendar file ready to import into:
    - Google Calendar
    - Apple Calendar
    - Microsoft Outlook
    - Any iCalendar-compatible app
+   - Example: `Paris_France_itinerary.ics`
+
+**Note:** Files are uniquely named with date and destination to prevent overwrites when creating multiple itineraries!
 
 ### Importing to Your Calendar
 
@@ -253,14 +306,46 @@ inputs = {
 - [OpenAI API Documentation](https://platform.openai.com/docs)
 - [Serper API Documentation](https://serper.dev/docs)
 
+## 📈 What's New
+
+### Version 0.2.0 (Latest)
+- ✅ **Unique File Naming** - Files now include date and destination (no more overwrites!)
+- ✅ **Improved Downloads** - Clear separation between single file and ZIP downloads
+- ✅ **Better Organization** - All exports saved to dedicated `exports/` folder
+
+### Previous Updates
+- 🌙 **Dark Theme UI** - Professional, eye-friendly interface
+- 📥 **ZIP Downloads** - All trip files in one convenient archive
+- 💬 **Chat Interface** - Ask questions about your itinerary
+- 🧠 **Session Memory** - Contextual conversations
+- 🔄 **GPT-4o Support** - Latest OpenAI model integration
+
+See [CHANGELOG.md](CHANGELOG.md) for complete version history.
+
 ## 🤝 Contributing
 
-Feel free to fork this project and customize it for your needs! Suggestions and improvements are welcome.
+Contributions are welcome! Feel free to:
+- 🐛 Report bugs
+- 💡 Suggest new features
+- 🔧 Submit pull requests
+- ⭐ Star the repository
+
+Visit the [GitHub repository](https://github.com/Ocolus1/travel-agent-ai) to contribute.
 
 ## 📄 License
 
 This project is open source and available under the MIT License.
 
+## 🌟 Star History
+
+If you find this project useful, please consider giving it a star on [GitHub](https://github.com/Ocolus1/travel-agent-ai)! ⭐
+
+## 📞 Support
+
+For issues, questions, or feature requests, please visit the [GitHub Issues](https://github.com/Ocolus1/travel-agent-ai/issues) page.
+
 ---
 
 **Happy Travels! 🌏✈️**
+
+Made with ❤️ using [CrewAI](https://crewai.com) and [Streamlit](https://streamlit.io)

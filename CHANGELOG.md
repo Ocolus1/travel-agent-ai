@@ -2,6 +2,39 @@
 
 All notable changes to the AI Travel Agent project will be documented in this file.
 
+## [0.2.1] - 2025-10-06
+
+### Changed
+
+#### 📚 **Updated README with Latest Information**
+- **Change**: Comprehensive README update with current project state
+- **Additions**:
+  - Added version badges (version, Python, license)
+  - Added GitHub repository link prominently
+  - Added Table of Contents for easy navigation
+  - Added Quick Start section with copy-paste commands
+  - Reorganized Features section (Core vs Web Interface)
+  - Added "What's New" section highlighting v0.2.0 features
+  - Updated file naming examples to show unique naming convention
+  - Added Support section with GitHub Issues link
+  - Added Star History section to encourage stars
+  - Enhanced Contributing section with actionable items
+  - Updated footer with CrewAI and Streamlit credits
+  
+**Key Highlights:**
+- Quick Start guide for new users
+- Clear documentation of unique file naming (no overwrites)
+- Latest version (0.2.0) features prominently displayed
+- GitHub integration throughout
+- Better organization and readability
+
+**Files Modified:**
+- `README.md` - Complete refresh with latest features and GitHub integration
+
+**Result:** README now accurately reflects current state and makes it easy for new users to get started!
+
+---
+
 ## [0.2.0] - 2025-10-06
 
 ### Fixed
